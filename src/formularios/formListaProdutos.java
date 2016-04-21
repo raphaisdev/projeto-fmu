@@ -76,6 +76,7 @@ public class formListaProdutos extends javax.swing.JFrame {
             }
         });
 
+        tabelaLlistaProdutos.setAutoCreateRowSorter(true);
         tabelaLlistaProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -84,7 +85,7 @@ public class formListaProdutos extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3"
+                "Codigo", "Nome", "Valor Venda (R$)"
             }
         ) {
             Class[] types = new Class [] {
