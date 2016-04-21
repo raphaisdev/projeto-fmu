@@ -177,6 +177,9 @@ public class formListaProdutos extends javax.swing.JFrame {
 
     private void BtAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAdicionarProdutoActionPerformed
         // TODO add your handling code here:
+        formCadastroProduto flp = new formCadastroProduto();
+        flp.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtAdicionarProdutoActionPerformed
 
     private void buscarTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarTextoActionPerformed
