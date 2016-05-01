@@ -5,6 +5,9 @@
  */
 package formularios;
 
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author uglyman
@@ -26,6 +29,7 @@ public class formCadastroProduto extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -99,29 +103,11 @@ public class formCadastroProduto extends javax.swing.JFrame {
         });
 
         jTable2.setAutoCreateRowSorter(true);
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Nome", "Valor (R$)"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, btAdicionarMaoDeObra, org.jdesktop.beansbinding.ObjectProperty.create(), jTable2, org.jdesktop.beansbinding.BeanProperty.create("elements"));
+        bindingGroup.addBinding(binding);
+        binding.bind();
         jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(1).setPreferredWidth(100);
-        }
 
         jLabel6.setText("Valor Imposto (%)");
 
@@ -228,15 +214,19 @@ public class formCadastroProduto extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        bindingGroup.bind();
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAdicionarMateriaPrimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarMateriaPrimaActionPerformed
         // TODO add your handling code here:
+        janelaSelecaoMateriaPrima();
     }//GEN-LAST:event_btAdicionarMateriaPrimaActionPerformed
 
     private void btAdicionarMaoDeObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarMaoDeObraActionPerformed
         // TODO add your handling code here:
+        janelaInsercaoMaoDeObra();
     }//GEN-LAST:event_btAdicionarMaoDeObraActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
@@ -278,6 +268,36 @@ public class formCadastroProduto extends javax.swing.JFrame {
         });
     }
 
+    
+    private void janelaSelecaoMateriaPrima(){
+        //resultado do banco
+        String[] choices = { "A", "B", "C", "D", "E", "F" };
+        String input = (String) JOptionPane.showInputDialog(null, "Selecione a materia-prima:",
+            "Matérias-Prima", JOptionPane.QUESTION_MESSAGE, null, // Use
+                                                                            // default
+                                                                            // icon
+            choices, // Array of choices
+            null); // Initial choice
+        System.out.println(input);
+    }
+    
+    private void janelaInsercaoMaoDeObra(){
+        JTextField maodeobra = new JTextField();
+        JTextField valor = new JTextField();
+        Object[] message = {
+            "Mão de Obra:", maodeobra,
+            "Valor:", valor
+        };
+
+        int option = JOptionPane.showConfirmDialog(null, message, "Login", JOptionPane.OK_CANCEL_OPTION);
+        if (option == JOptionPane.OK_OPTION) {
+            
+        } else {
+            System.out.println("Login canceled");
+        }
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionarMaoDeObra;
     private javax.swing.JButton btAdicionarMateriaPrima;
@@ -298,5 +318,6 @@ public class formCadastroProduto extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
