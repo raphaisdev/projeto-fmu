@@ -3,21 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package formularios;
-
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+package view;
 
 /**
  *
- * @author uglyman
+ * @author #EK
  */
-public class formCadastroProduto extends javax.swing.JFrame {
+public class FRMCadastroProduto extends javax.swing.JFrame {
 
     /**
-     * Creates new form formCadastroProduto
+     * Creates new form FRMCadastroProduto
      */
-    public formCadastroProduto() {
+    public FRMCadastroProduto() {
         initComponents();
     }
 
@@ -29,8 +26,11 @@ public class formCadastroProduto extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+        jLabel5 = new javax.swing.JLabel();
+        btAdicionarMaoDeObra = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         campoCodigo = new javax.swing.JTextField();
@@ -40,18 +40,26 @@ public class formCadastroProduto extends javax.swing.JFrame {
         btAdicionarMateriaPrima = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
-        btAdicionarMaoDeObra = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         campoValorImposto = new javax.swing.JTextField();
-        campoValorTotal = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        btSalvar = new javax.swing.JButton();
+        campoValorTotal = new javax.swing.JTextField();
         btCancelar = new javax.swing.JButton();
+        btSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel5.setText("Lista de Mão de obra");
+
+        btAdicionarMaoDeObra.setText("+ Mão de obra");
+        btAdicionarMaoDeObra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdicionarMaoDeObraActionPerformed(evt);
+            }
+        });
+
+        jTable2.setAutoCreateRowSorter(true);
+        jScrollPane2.setViewportView(jTable2);
 
         jLabel1.setFont(jLabel1.getFont().deriveFont(jLabel1.getFont().getStyle() | java.awt.Font.BOLD, jLabel1.getFont().getSize()+2));
         jLabel1.setText("Cadastro de Produtos");
@@ -93,25 +101,11 @@ public class formCadastroProduto extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel5.setText("Lista de Mão de obra");
-
-        btAdicionarMaoDeObra.setText("+ Mão de obra");
-        btAdicionarMaoDeObra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btAdicionarMaoDeObraActionPerformed(evt);
-            }
-        });
-
-        jTable2.setAutoCreateRowSorter(true);
-
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, btAdicionarMaoDeObra, org.jdesktop.beansbinding.ObjectProperty.create(), jTable2, org.jdesktop.beansbinding.BeanProperty.create("elements"));
-        bindingGroup.addBinding(binding);
-        binding.bind();
-        jScrollPane2.setViewportView(jTable2);
-
         jLabel6.setText("Valor Imposto (%)");
 
         jLabel7.setText("Valor Total (R$)");
+
+        btCancelar.setText("Cancelar");
 
         btSalvar.setFont(btSalvar.getFont().deriveFont(btSalvar.getFont().getStyle() | java.awt.Font.BOLD, btSalvar.getFont().getSize()+1));
         btSalvar.setText("Salvar");
@@ -120,8 +114,6 @@ public class formCadastroProduto extends javax.swing.JFrame {
                 btSalvarActionPerformed(evt);
             }
         });
-
-        btCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,7 +146,7 @@ public class formCadastroProduto extends javax.swing.JFrame {
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btAdicionarMaoDeObra))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -214,20 +206,18 @@ public class formCadastroProduto extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btAdicionarMateriaPrimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarMateriaPrimaActionPerformed
-        // TODO add your handling code here:
-        janelaSelecaoMateriaPrima();
-    }//GEN-LAST:event_btAdicionarMateriaPrimaActionPerformed
 
     private void btAdicionarMaoDeObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarMaoDeObraActionPerformed
         // TODO add your handling code here:
         janelaInsercaoMaoDeObra();
     }//GEN-LAST:event_btAdicionarMaoDeObraActionPerformed
+
+    private void btAdicionarMateriaPrimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarMateriaPrimaActionPerformed
+        // TODO add your handling code here:
+        janelaSelecaoMateriaPrima();
+    }//GEN-LAST:event_btAdicionarMateriaPrimaActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         // TODO add your handling code here:
@@ -250,54 +240,24 @@ public class formCadastroProduto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(formCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FRMCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(formCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FRMCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(formCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FRMCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(formCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FRMCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new formCadastroProduto().setVisible(true);
+                new FRMCadastroProduto().setVisible(true);
             }
         });
     }
 
-    
-    private void janelaSelecaoMateriaPrima(){
-        //resultado do banco
-        String[] choices = { "A", "B", "C", "D", "E", "F" };
-        String input = (String) JOptionPane.showInputDialog(null, "Selecione a materia-prima:",
-            "Matérias-Prima", JOptionPane.QUESTION_MESSAGE, null, // Use
-                                                                            // default
-                                                                            // icon
-            choices, // Array of choices
-            null); // Initial choice
-        System.out.println(input);
-    }
-    
-    private void janelaInsercaoMaoDeObra(){
-        JTextField maodeobra = new JTextField();
-        JTextField valor = new JTextField();
-        Object[] message = {
-            "Mão de Obra:", maodeobra,
-            "Valor:", valor
-        };
-
-        int option = JOptionPane.showConfirmDialog(null, message, "Login", JOptionPane.OK_CANCEL_OPTION);
-        if (option == JOptionPane.OK_OPTION) {
-            
-        } else {
-            System.out.println("Login canceled");
-        }
-    }
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionarMaoDeObra;
     private javax.swing.JButton btAdicionarMateriaPrima;
@@ -318,6 +278,5 @@ public class formCadastroProduto extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

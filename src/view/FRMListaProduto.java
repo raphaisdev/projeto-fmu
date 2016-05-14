@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package formularios;
+package view;
 
 /**
  *
- * @author uglyman
+ * @author #EK
  */
-public class formListaProdutos extends javax.swing.JFrame {
+public class FRMListaProduto extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form formListaProdutos
+     * Creates new form FRMListaProduto
      */
-    public formListaProdutos() {
+    public FRMListaProduto() {
         initComponents();
     }
 
@@ -34,12 +34,10 @@ public class formListaProdutos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         buscarCodigo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        buscarMateriaPrima = new javax.swing.JComboBox<>();
+        buscarMateriaPrima = new javax.swing.JComboBox<String>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaLlistaProdutos = new javax.swing.JTable();
         btBuscar = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(jLabel1.getFont().deriveFont(jLabel1.getFont().getStyle() | java.awt.Font.BOLD, jLabel1.getFont().getSize()+2));
         jLabel1.setText("Produtos");
@@ -69,7 +67,7 @@ public class formListaProdutos extends javax.swing.JFrame {
 
         jLabel4.setText("Matéria Prima");
 
-        buscarMateriaPrima.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        buscarMateriaPrima.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         buscarMateriaPrima.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscarMateriaPrimaActionPerformed(evt);
@@ -105,7 +103,6 @@ public class formListaProdutos extends javax.swing.JFrame {
         });
         tabelaLlistaProdutos.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(tabelaLlistaProdutos);
-        tabelaLlistaProdutos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         btBuscar.setText("Buscar Produto");
         btBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +115,7 @@ public class formListaProdutos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,7 +165,7 @@ public class formListaProdutos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btBuscar)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -177,7 +174,7 @@ public class formListaProdutos extends javax.swing.JFrame {
 
     private void BtAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAdicionarProdutoActionPerformed
         // TODO add your handling code here:
-        formCadastroProduto flp = new formCadastroProduto();
+        FRMCadastroProduto flp = new FRMCadastroProduto();
         flp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtAdicionarProdutoActionPerformed
@@ -198,40 +195,6 @@ public class formListaProdutos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btBuscarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(formListaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(formListaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(formListaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(formListaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new formListaProdutos().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtAdicionarProduto;
