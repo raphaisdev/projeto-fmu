@@ -5,6 +5,9 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author #EK
@@ -257,6 +260,35 @@ public class FRMCadastroProduto extends javax.swing.JFrame {
             }
         });
     }
+            
+    private void janelaSelecaoMateriaPrima(){
+        //resultado do banco
+        String[] choices = { "Materia Prima 1", "Materia Prima 2", "Materia Prima 3", "Materia Prima 4", "Materia Prima 5" };
+        String input = (String) JOptionPane.showInputDialog(null, "Selecione a matéria-prima:",
+            "Matérias-Prima", JOptionPane.QUESTION_MESSAGE, null, // Use
+                                                                            // default
+                                                                            // icon
+            choices, // Array of choices
+            null); // Initial choice
+        System.out.println(input);
+    }
+    
+    private void janelaInsercaoMaoDeObra(){
+        JTextField maodeobra = new JTextField();
+        JTextField valor = new JTextField();
+        Object[] message = {
+            "Mão de Obra:", maodeobra,
+            "Valor:", valor
+        };
+
+        int option = JOptionPane.showConfirmDialog(null, message, "Login", JOptionPane.OK_CANCEL_OPTION);
+        if (option == JOptionPane.OK_OPTION) {
+            
+        } else {
+            System.out.println("Login canceled");
+        }
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionarMaoDeObra;
